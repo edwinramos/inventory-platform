@@ -1,4 +1,4 @@
-﻿namespace InventoryPlatform.Tests;
+namespace InventoryPlatform.Tests;
 
 public class UnitTest1
 {
