@@ -1,0 +1,17 @@
+using InventoryPlatform.Infrastructure.Persistance;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+
+public class InventoryDbContextFactory
+    : IDesignTimeDbContextFactory<InventoryDbContext>
+{
+    public InventoryDbContext CreateDbContext(string[] args)
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<InventoryDbContext>();
+
+        optionsBuilder.UseNpgsql(
+            "Host=localhost;Port=5433;Database=InventoryPlatform;Username=postgres;Password=postgres");
+
+        return new InventoryDbContext(optionsBuilder.Options);
+    }
+}
