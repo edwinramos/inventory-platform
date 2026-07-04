@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using InventoryPlatform.Domain.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace InventoryPlatform.Infrastructure.Persistance;
 
-public class InventoryDbContext : DbContext
+public class InventoryDbContext : IdentityDbContext<ApplicationUser>
 {
     public InventoryDbContext(DbContextOptions<InventoryDbContext> options)
         : base(options)
