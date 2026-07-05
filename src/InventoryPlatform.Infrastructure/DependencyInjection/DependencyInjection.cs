@@ -1,4 +1,6 @@
+using InventoryPlatform.Application.Common.Interfaces;
 using InventoryPlatform.Domain.Identity;
+using InventoryPlatform.Infrastructure.Identity;
 using InventoryPlatform.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -13,7 +15,7 @@ public static class DependencyInjection
         services.AddDbContext<InventoryDbContext>(options =>
             options.UseNpgsql(
                 configuration.GetConnectionString("DefaultConnection")));
-
+        services.AddScoped<IIdentityService, IdentityService>();
         services
             .AddIdentityCore<ApplicationUser>(options =>
             {
