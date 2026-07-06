@@ -1,4 +1,4 @@
-using InventoryPlatform.Infrastructure.Persistance;
+using InventoryPlatform.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;

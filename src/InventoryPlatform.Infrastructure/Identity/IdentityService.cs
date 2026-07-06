@@ -33,4 +33,22 @@ public sealed class IdentityService : IIdentityService
             result.Succeeded,
             result.Errors.Select(e => e.Description));
     }
+    
+    public async Task<ApplicationUser?> AuthenticateAsync(
+        string email,
+        string password)
+    {
+        var user = await _userManager.FindByEmailAsync(email);
+
+        if (user is null)
+        {
+            return null;
+        }
+
+        var validPassword = await _userManager.CheckPasswordAsync(user, password);
+
+        return validPassword
+            ? user
+            : null;
+    }
 }

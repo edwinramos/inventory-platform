@@ -1,10 +1,11 @@
 using InventoryPlatform.Application.Common.Interfaces;
 using InventoryPlatform.Domain.Identity;
 using InventoryPlatform.Infrastructure.Identity;
-using InventoryPlatform.Infrastructure.Persistance;
+using InventoryPlatform.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using InventoryPlatform.Infrastructure.Authentication;
 
 public static class DependencyInjection
 {
@@ -15,7 +16,9 @@ public static class DependencyInjection
         services.AddDbContext<InventoryDbContext>(options =>
             options.UseNpgsql(
                 configuration.GetConnectionString("DefaultConnection")));
+        
         services.AddScoped<IIdentityService, IdentityService>();
+        
         services
             .AddIdentityCore<ApplicationUser>(options =>
             {
@@ -28,6 +31,11 @@ public static class DependencyInjection
                 options.User.RequireUniqueEmail = true;
             })
             .AddEntityFrameworkStores<InventoryDbContext>();
+        
+        services.Configure<JwtOptions>(
+            configuration.GetSection(JwtOptions.SectionName));
+
+        services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
         
         return services;
     }

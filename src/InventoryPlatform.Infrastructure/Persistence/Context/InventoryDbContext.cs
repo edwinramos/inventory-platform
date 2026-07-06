@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace InventoryPlatform.Infrastructure.Persistance;
+namespace InventoryPlatform.Infrastructure.Persistence;
 
 public class InventoryDbContext : IdentityDbContext<ApplicationUser>
 {
