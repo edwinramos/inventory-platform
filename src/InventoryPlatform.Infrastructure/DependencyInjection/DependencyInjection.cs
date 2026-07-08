@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using InventoryPlatform.Infrastructure.Authentication;
+using InventoryPlatform.Infrastructure.Persistence.Repositories;
 
 public static class DependencyInjection
 {
@@ -18,6 +19,7 @@ public static class DependencyInjection
                 configuration.GetConnectionString("DefaultConnection")));
         
         services.AddScoped<IIdentityService, IdentityService>();
+        services.AddScoped<IProductRepository, ProductRepository>();
         
         services
             .AddIdentityCore<ApplicationUser>(options =>

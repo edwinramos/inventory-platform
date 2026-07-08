@@ -1,6 +1,8 @@
 using InventoryPlatform.Application.Features.Authentication.Login;
 using InventoryPlatform.Application.Features.Authentication.Register;
 using MediatR;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace InventoryPlatform.Api.Endpoints;
 
@@ -22,9 +24,23 @@ public static class AuthenticationEndpoints
             .Produces(StatusCodes.Status401Unauthorized)
             .ProducesValidationProblem();
 
+        app.MapGet("/api/auth/me", Me)
+            .WithName("Me")
+            .WithTags("Authentication")
+            .RequireAuthorization();
         return app;
     }
+    
+    private static IResult Me(ClaimsPrincipal user)
+    {
+        var claims = user.Claims.Select(c => new
+        {
+            c.Type,
+            c.Value
+        });
 
+        return Results.Ok(claims);
+    }
     private static async Task<IResult> Register(
         RegisterCommand command,
         ISender sender)

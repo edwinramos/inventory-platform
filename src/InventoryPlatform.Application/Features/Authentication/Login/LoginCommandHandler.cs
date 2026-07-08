@@ -1,4 +1,5 @@
-﻿using InventoryPlatform.Application.Common.Interfaces;
+﻿using InventoryPlatform.Application.Common.Exceptions;
+using InventoryPlatform.Application.Common.Interfaces;
 using MediatR;
 
 namespace InventoryPlatform.Application.Features.Authentication.Login;
@@ -27,7 +28,7 @@ public sealed class LoginCommandHandler
 
         if (user is null)
         {
-            throw new UnauthorizedAccessException("Invalid email or password.");
+            throw new UnauthorizedException("Invalid email or password.");
         }
 
         var accessToken = _jwtTokenGenerator.GenerateToken(
