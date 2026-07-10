@@ -33,4 +33,29 @@ public sealed class ProductRepository : IProductRepository
     {
         await _context.SaveChangesAsync(cancellationToken);
     }
+    
+    public async Task<Product?> GetByIdAsync(
+        Guid id,
+        CancellationToken cancellationToken = default)
+    {
+        return await _context.Products
+            .AsNoTracking()
+            .FirstOrDefaultAsync(
+                x => x.Id == id,
+                cancellationToken);
+    }
+
+    public async Task<List<ProductSummary>> GetProductsAsync(int page, int pageSize, CancellationToken cancellationToken = default)
+    {
+        return await _context.Products
+            .OrderBy(p => p.Id) 
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize).Select(product=> new ProductSummary(
+                product.Id, 
+                product.Name,
+                product.Description,
+                product.Cost,
+                product.Sku,
+                product.Price)).ToListAsync();
+    }
 }

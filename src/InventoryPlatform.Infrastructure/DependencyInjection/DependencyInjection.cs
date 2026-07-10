@@ -17,6 +17,8 @@ public static class DependencyInjection
         services.AddDbContext<InventoryDbContext>(options =>
             options.UseNpgsql(
                 configuration.GetConnectionString("DefaultConnection")));
+        services.AddScoped<IApplicationDbContext>(
+            provider => provider.GetRequiredService<InventoryDbContext>());
         
         services.AddScoped<IIdentityService, IdentityService>();
         services.AddScoped<IProductRepository, ProductRepository>();

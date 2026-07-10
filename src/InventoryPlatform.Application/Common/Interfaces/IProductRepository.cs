@@ -14,4 +14,13 @@ public interface IProductRepository
 
     Task SaveChangesAsync(
         CancellationToken cancellationToken = default);
+    
+    Task<Product?> GetByIdAsync(
+        Guid id,
+        CancellationToken cancellationToken = default);
+        
+    Task<List<ProductSummary>> GetProductsAsync(
+        int page,
+        int pageSize,
+        CancellationToken cancellationToken = default);
 }
