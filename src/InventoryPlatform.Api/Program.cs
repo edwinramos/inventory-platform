@@ -59,5 +59,6 @@ app.MapGet("/", () => "Inventory Platform API is running 🚀");
 
 app.MapAuthenticationEndpoints();
 app.MapProductEndpoints();
+app.MapInventoryEndpoints();
 
 app.Run();

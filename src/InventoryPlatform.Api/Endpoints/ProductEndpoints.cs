@@ -44,7 +44,7 @@ public static class ProductEndpoints
     }
     
     private static async Task<IResult> GetProducts(
-        [AsParameters] GetProductsQuery query,
+        [AsParameters] GetProductsRequest query,
         ISender sender)
     {
         var response = await sender.Send(new GetProductsQuery(query.Page, query.PageSize));

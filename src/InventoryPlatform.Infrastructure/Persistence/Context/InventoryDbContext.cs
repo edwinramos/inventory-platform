@@ -9,6 +9,8 @@ namespace InventoryPlatform.Infrastructure.Persistence;
 public class InventoryDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
 {
     public DbSet<Product> Products => Set<Product>();
+    public DbSet<InventoryItem> InventoryItems => Set<InventoryItem>();
+    public DbSet<InventoryMovement> InventoryMovements => Set<InventoryMovement>();
     public InventoryDbContext(DbContextOptions<InventoryDbContext> options)
         : base(options)
     {
@@ -16,6 +18,8 @@ public class InventoryDbContext : IdentityDbContext<ApplicationUser>, IApplicati
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        builder.ApplyConfigurationsFromAssembly(typeof(InventoryDbContext).Assembly);
+        
         base.OnModelCreating(builder);
 
         builder.ApplyConfigurationsFromAssembly(typeof(InventoryDbContext).Assembly);
