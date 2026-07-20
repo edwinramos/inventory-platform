@@ -1,85 +1,153 @@
-Inventory Platform
+# 🚀 Inventory Platform
 
-A production-oriented Inventory Management API built with .NET 10, following Clean Architecture, CQRS, and modern backend development practices.
+> **A production-oriented Inventory Management API built with .NET 10 using Clean Architecture, CQRS, and modern backend development practices.**
 
-The goal of this project is to demonstrate how a scalable inventory management system can be structured using enterprise-grade patterns rather than building a simple CRUD application.
+Este proyecto demuestra cómo construir un sistema de gestión de inventario **escalable, mantenible y listo para producción**, aplicando patrones de arquitectura empresarial en lugar de desarrollar una simple aplicación CRUD.
 
-Features
-Authentication
-JWT Authentication
-ASP.NET Identity
-Secure password hashing
-Role-ready authorization
-Protected endpoints
-Product Management
-Create products
-Get product by ID
-Paginated product listing
-DTO projections for optimized queries
-Inventory Management
-Add stock
-Remove stock
-Current stock lookup
-Inventory movement history
-Architecture
-Clean Architecture
-CQRS with MediatR
-Repository Pattern
-Dependency Injection
-Minimal APIs
-Global Exception Handling
-Infrastructure
-PostgreSQL
-Entity Framework Core
-Docker
-Docker Compose
-Health Checks
-Tech Stack
-Category	Technology
-Backend	.NET 10
-Architecture	Clean Architecture
-API	Minimal APIs
-Authentication	JWT + ASP.NET Identity
-Database	PostgreSQL
-ORM	Entity Framework Core
-Messaging	MediatR
-Containerization	Docker
-Documentation	Swagger
-Running locally
-docker compose up --build
+---
 
-Swagger
+# ✨ Características
 
-http://localhost:5075/swagger
+## 🔐 Autenticación
+- ✅ JWT Authentication
+- ✅ ASP.NET Identity
+- ✅ Secure Password Hashing
+- ✅ Role-Based Authorization (Ready)
+- ✅ Protected Endpoints
 
-Health Check
+---
 
-http://localhost:5075/health
-Project Structure
+## 📦 Gestión de Productos
+- ✅ Crear productos
+- ✅ Obtener producto por ID
+- ✅ Listado paginado
+- ✅ DTO Projections para consultas optimizadas
+
+---
+
+## 📊 Gestión de Inventario
+- ✅ Agregar inventario
+- ✅ Remover inventario
+- ✅ Consulta de stock actual
+- ✅ Historial de movimientos de inventario
+
+---
+
+# 🏗️ Arquitectura
+
+Este proyecto implementa patrones utilizados en aplicaciones empresariales:
+
+- 🧱 Clean Architecture
+- 📨 CQRS con MediatR
+- 🗄️ Repository Pattern
+- 💉 Dependency Injection
+- ⚡ Minimal APIs
+- 🚨 Global Exception Handling
+
+---
+
+# 🛠️ Stack Tecnológico
+
+| Categoría | Tecnología |
+|-----------|------------|
+| 💻 Backend | .NET 10 |
+| 🏗️ Arquitectura | Clean Architecture |
+| 🌐 API | Minimal APIs |
+| 🔐 Autenticación | JWT + ASP.NET Identity |
+| 🗄️ Base de Datos | PostgreSQL |
+| 📚 ORM | Entity Framework Core |
+| 📨 Messaging | MediatR |
+| 🐳 Contenedores | Docker + Docker Compose |
+| 📖 Documentación | Swagger |
+| ❤️ Health Monitoring | ASP.NET Health Checks |
+
+---
+
+# 📁 Estructura del Proyecto
+
+```text
 src/
- ├── InventoryPlatform.Api
- ├── InventoryPlatform.Application
- ├── InventoryPlatform.Domain
- └── InventoryPlatform.Infrastructure
-Current Architecture
-Clean Architecture
-CQRS
-Repository Pattern
-Dependency Injection
-DTO Projections
-JWT Authentication
-Health Checks
-Dockerized Development Environment
-Roadmap
+├── InventoryPlatform.Api
+├── InventoryPlatform.Application
+├── InventoryPlatform.Domain
+└── InventoryPlatform.Infrastructure
+```
 
-Future improvements include:
+---
 
-Redis Caching
-CI/CD Pipeline
-OpenTelemetry
-Background Jobs
-Domain Events
-Outbox Pattern
-Purpose
+# ▶️ Ejecutar Localmente
 
-This project was built as part of my journey toward becoming a Senior Backend Engineer, focusing on software architecture, scalability, and production-ready development practices.
+## Levantar la aplicación
+
+```bash
+docker compose up --build
+```
+
+---
+
+## 📖 Swagger
+
+```
+http://localhost:5075/swagger
+```
+
+---
+
+## ❤️ Health Check
+
+```
+http://localhost:5075/health
+```
+
+---
+
+# ✅ Implementado Actualmente
+
+- ✔️ Clean Architecture
+- ✔️ CQRS
+- ✔️ Repository Pattern
+- ✔️ Dependency Injection
+- ✔️ DTO Projections
+- ✔️ JWT Authentication
+- ✔️ Health Checks
+- ✔️ Dockerized Development Environment
+
+---
+
+# 🗺️ Roadmap
+
+Próximas funcionalidades:
+
+- 🚀 Redis Caching
+- 🔄 CI/CD Pipeline
+- 📈 OpenTelemetry
+- ⚙️ Background Jobs
+- 📢 Domain Events
+- 📬 Outbox Pattern
+- 🧪 Integration Tests
+- 📊 Metrics & Monitoring
+
+---
+
+# 🎯 Objetivo
+
+Este proyecto forma parte de mi camino para convertirme en **Senior Backend Engineer**, enfocándome en:
+
+- Arquitectura de software
+- Escalabilidad
+- Clean Code
+- Buenas prácticas
+- Desarrollo orientado a producción
+- Sistemas mantenibles y extensibles
+
+---
+
+# ⭐ Si te gusta este proyecto...
+
+¡No olvides darle una **⭐ Star** al repositorio!
+
+También puedes abrir un **Issue** o enviar un **Pull Request** si tienes sugerencias o mejoras.
+
+---
+
+## 👨‍💻 Desarrollado con ❤️ usando .NET 10
