@@ -80,6 +80,8 @@ src/
 ## Levantar la aplicación
 
 ```bash
+dotnet ef database update --project src/InventoryPlatform.Infrastructure --startup-project src/InventoryPlatform.Api
+
 docker compose up --build
 ```
 
